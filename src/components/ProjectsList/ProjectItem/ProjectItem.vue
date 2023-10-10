@@ -1,0 +1,110 @@
+<script setup lang="ts">
+import type { ProjectType } from '../../../data/projects';
+import Card from '@/components/Card.vue';
+import TechBar from './TechBar.vue';
+
+defineProps<{
+    project: ProjectType
+}>();
+
+</script>
+
+
+<template>
+    <a class="root" :href="project.link" target="_blank">
+        <Card class="main-card">
+            <main>
+                <div class="info">
+                    <h2>{{ project.name }}</h2>
+                    <br />
+                    <p>{{ project.description }}</p>
+                </div>
+            </main>
+            <div class="image-div">
+                <img :src="project.images[0]" />
+            </div>
+        </Card>
+        <TechBar :items="project.technologies"/>
+    </a>
+</template>
+
+
+<style scoped>
+.root {
+    position: relative;
+    width: 100%;
+    perspective: 700px;
+    cursor: pointer;
+    margin: 10px;
+    margin-bottom: 30px;
+}
+
+.main-card {
+    position: relative;
+    height: 300px;
+    display: flex;
+    overflow: hidden;
+    border-radius: 15px;
+    border: 1px solid;
+}
+
+.main-card:hover {
+    --marg: -100%;
+}
+
+main {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+.info {
+    position: relative;
+    flex: 1;
+    word-wrap: break-word;
+    text-align: center;
+    padding: 3px;
+    padding-right: 10px;
+    overflow: hidden;
+    z-index: -1;
+}
+
+h2 {
+    color: var(--color-heading);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.image-div {
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+    transition: all 300ms;
+    margin-left: var(--marg);
+}
+
+.image-div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    justify-content: start;
+    align-items: center;
+}
+
+.main-card:hover img {
+    object-fit: contain;
+}
+
+.main-card:hover .image-div {
+    background-color: var(--color-background);
+}
+
+@media (min-width: 720px) {
+    .root {
+        width: 45%;
+    }
+}
+</style>
