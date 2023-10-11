@@ -34,5 +34,6 @@ p{
     width: 100%;
     flex-wrap: wrap;
     display: flex;
+    justify-content: center;
 }
 </style>
