@@ -20,6 +20,7 @@ defineProps<{
     height: 30px;
     display: flex;
     justify-content: center;
+    pointer-events: none;
     align-items: center;
 }
 
