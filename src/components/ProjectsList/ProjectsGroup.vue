@@ -15,6 +15,8 @@ import ProjectItem from "./ProjectItem/ProjectItem.vue";
             <ProjectItem v-for="project in group.projects" :project="project" />
         </div>
     </main>
+
+    <div class="divider"></div>
 </template>
 
 
@@ -35,5 +37,14 @@ p{
     flex-wrap: wrap;
     display: flex;
     justify-content: center;
+}
+
+.divider{
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-primary);
+    margin-top: 50px;
+    margin-bottom: 50px;
+
 }
 </style>
