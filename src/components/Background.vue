@@ -1,0 +1,110 @@
+<script setup lang="ts">
+import { onMounted, ref, onUnmounted } from 'vue';
+const props = withDefaults(defineProps<{
+    size?: number,
+    margin?: number,
+}>(), {
+    size: 50,
+    margin: .3,
+});
+
+const canv = ref<HTMLCanvasElement | null>(null);
+let radius = 800;
+
+onMounted(() => {
+    if (canv.value === null) return;
+    setSize(canv.value!);
+    draw(canv.value!);
+    window.addEventListener("resize", onResize);
+    window.addEventListener("mousemove", onMousemove);
+    window.addEventListener("mouseout", onMouseleave);
+});
+
+onUnmounted(() => {
+    window.removeEventListener("resize", onResize);
+    window.removeEventListener("mousemove", onMousemove);
+    window.removeEventListener("mouseout", onMouseleave);
+});
+
+const onResize = () => {
+    setSize(canv.value!);
+    draw(canv.value!);
+}
+
+const onMousemove = (e: MouseEvent) => {
+    draw(canv.value!, e.clientX, e.clientY);
+}
+
+const onMouseleave = () => {
+    draw(canv.value!);
+}
+
+const setSize = (e: HTMLCanvasElement) => {
+    if (window.innerWidth == null) return;
+    radius = window.innerHeight;
+    e.width = window.innerWidth;
+    e.height = window.innerHeight;
+}
+
+const draw = (e: HTMLCanvasElement, hoverX?: number, hoverY?: number) => {
+    const ctx = e.getContext("2d");
+    var backgroundColor = getComputedStyle(document.documentElement).getPropertyValue("--color-background");
+
+    ctx?.reset();
+    ctx!.beginPath();
+
+    for (var y = 0; y <= window.innerHeight; y += props.size) {
+        for (var x = 0; x <= window.innerWidth; x += props.size) {
+            let ratio = 1;
+            let color = backgroundColor;
+            let offset = { x: 0, y: 0 };
+
+            if (hoverX != null && hoverY != null) {
+                ratio = ratioFromCenter(x, y, hoverX, hoverY, radius);
+                color += (175 + Math.floor(80 * ratio)).toString(16);
+                offset = getOffset(hoverX, hoverY);
+            }
+
+            drawRect(ctx!,
+                x + offset.x - (offset.x * ratio),
+                y + offset.y - (offset.y * ratio),
+                props.margin - (ratio * props.margin),
+                color
+            );
+        }
+    }
+
+}
+
+const drawRect = (ctx: CanvasRenderingContext2D, x: number, y: number, margin: number, color: string) => {
+    ctx.fillStyle = color;
+    ctx.fillRect(x + margin, y + margin, props.size - margin * 2, props.size - margin * 2);
+}
+
+const ratioFromCenter = (x1: number, y1: number, cX: number, cY: number, radius: number) => {
+    const l = Math.sqrt(Math.pow(Math.abs(cX - x1), 2) + Math.pow(Math.abs(cY - y1), 2));
+    return l < radius ? l / radius : 1
+}
+
+const getOffset = (x: number, y: number) => {
+    return {
+        x: ((x / window.innerWidth) - 0.5) * 200,
+        y: ((y / window.innerHeight) - 0.5) * 200,
+    };
+}
+
+</script>
+
+<template>
+    <canvas ref="canv" width="1080" height="720"></canvas>
+</template>
+
+<style scoped>
+canvas {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: -1;
+}
+</style>
