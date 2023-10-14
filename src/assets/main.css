@@ -1,11 +1,6 @@
 @import './base.css';
 
 
-#app{
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
 a{
     all: unset;
 }
@@ -17,10 +12,6 @@ h1{
 }
 
 @media (min-width: 1080px) {
-    #app{
-        padding-left: 100px;
-        padding-right: 100px;
-    }
 
     h1{
         font-size: 2.5rem;
