@@ -24,7 +24,7 @@ defineProps<{
                 <img :src="project.images[0]" />
             </div>
         </Card>
-        <TechBar :items="project.technologies"/>
+        <TechBar :items="project.technologies" />
     </a>
 </template>
 
@@ -36,7 +36,7 @@ defineProps<{
     perspective: 700px;
     cursor: pointer;
     margin: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
 }
 
 .main-card {
@@ -74,7 +74,7 @@ main {
 
 h2 {
     color: var(--color-heading);
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
@@ -106,5 +106,20 @@ h2 {
     .root {
         width: 45%;
     }
-}
-</style>
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .main-card:hover {
+        --marg: -67%;
+    }
+
+    main {
+        flex: 2;
+    }
+
+    .image-div {
+        flex: 3;
+    }
+}</style>
