@@ -1,8 +1,8 @@
 <script setup lang="ts">
-    defineProps<{
-        title?: String,
-        info?: String,
-    }>();
+defineProps<{
+    title?: String,
+    info?: String,
+}>();
 </script>
 
 <template>
@@ -72,6 +72,7 @@ h1 {
     height: fit-content;
     min-height: 250px;
     padding: 50px;
+    padding-right: 0px;
     animation: card-open 1s;
     transition: all 1s;
 }
@@ -138,4 +139,10 @@ h1 {
     .details {
         margin-left: 20%;
     }
-}</style>
+
+    .card {
+        padding: 50px;
+        padding-right: 50px;
+    }
+}
+</style>
