@@ -14,14 +14,16 @@ defineProps<{
 <style scoped>
 .main{
     position: absolute;
-    left: 0;
-    right: 0;
+    left: 10px;
+    right: 10px;
     bottom: -15px;    
     height: 30px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     pointer-events: none;
     align-items: center;
+    color: white;
 }
 
 .item{
