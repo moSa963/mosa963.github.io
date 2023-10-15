@@ -10,6 +10,8 @@ const props = withDefaults(defineProps<{
 
 const canv = ref<HTMLCanvasElement | null>(null);
 let radius = 800;
+let id = -1;
+let lastPoint = { x: 0, y: 0 };
 
 onMounted(() => {
     if (canv.value === null) return;
@@ -32,11 +34,25 @@ const onResize = () => {
 }
 
 const onMousemove = (e: MouseEvent) => {
+    clearInterval(id);
+    id = -1;
     draw(canv.value!, e.clientX, e.clientY);
 }
 
 const onMouseleave = () => {
-    draw(canv.value!);
+    if (id != -1) return;
+
+    var counter = 0;
+
+    id = setInterval(() => {
+        counter += 1;
+        draw(canv.value!, lastPoint.x - counter, lastPoint.y);
+
+        if (counter >= radius * 2) {
+            clearInterval(id);
+            id = -1;
+        }
+    }, 15);
 }
 
 const setSize = (e: HTMLCanvasElement) => {
@@ -47,8 +63,13 @@ const setSize = (e: HTMLCanvasElement) => {
 }
 
 const draw = (e: HTMLCanvasElement, hoverX?: number, hoverY?: number) => {
+    lastPoint = {
+        x: hoverX || 0,
+        y: hoverY || 0,
+    };
+
     const ctx = e.getContext("2d");
-    var backgroundColor = getComputedStyle(document.documentElement).getPropertyValue("--color-background");
+    var backgroundColor = getComputedStyle(e as Element).getPropertyValue("--color-background");
 
     ctx?.reset();
     ctx!.beginPath();
