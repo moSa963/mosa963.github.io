@@ -32,7 +32,9 @@ export const projects : Array<ProjectGroupType> = [
                     "blade",
                 ],
                 images: [
-                    "./images/chatroom/img1.webp",
+                    "./images/chatroom/chatroom1.png",
+                    "./images/chatroom/chatroom2.png",
+                    "./images/chatroom/chatroom3.png",
                 ],
                 link: "https://github.com/moSa963/chatroom",
                 preview: null,
@@ -49,7 +51,8 @@ export const projects : Array<ProjectGroupType> = [
                     "Mui",
                 ],
                 images: [
-                    "https://github.com/moSa963/soundstream/assets/65834849/e93185a1-82d4-4344-962e-d3c51f7ad654",
+                    "./images/chatroom/chatroom5.png",
+                    "./images/chatroom/chatroom4.png",
                 ],
                 link: "https://github.com/moSa963/chatroom-react",
                 preview: null,
@@ -72,7 +75,8 @@ export const projects : Array<ProjectGroupType> = [
                     "blade",
                 ],
                 images: [
-                    "https://github.com/moSa963/soundstream/assets/65834849/e93185a1-82d4-4344-962e-d3c51f7ad654",
+                    "./images/mystorage/mystorage2.png",
+                    "./images/mystorage/mystorage1.png",
                 ],
                 link: "https://github.com/moSa963/mystorage",
                 preview: null,
@@ -88,7 +92,9 @@ export const projects : Array<ProjectGroupType> = [
                     "Mui",
                 ],
                 images: [
-                    "https://github.com/moSa963/soundstream/assets/65834849/e93185a1-82d4-4344-962e-d3c51f7ad654",
+                    "./images/mystorage/mystorage5.png",
+                    "./images/mystorage/mystorage3.png",
+                    "./images/mystorage/mystorage4.png",
                 ],
                 link: "https://github.com/moSa963/mystorage-react",
                 preview: null,
@@ -111,7 +117,8 @@ export const projects : Array<ProjectGroupType> = [
                     "blade",
                 ],
                 images: [
-                    "https://github.com/moSa963/soundstream/assets/65834849/e93185a1-82d4-4344-962e-d3c51f7ad654",
+                    "./images/soundstream/soundstream1.png",
+                    "./images/soundstream/soundstream2.png",
                 ],
                 link: "https://github.com/moSa963/soundstream",
                 preview: null,
@@ -124,7 +131,10 @@ export const projects : Array<ProjectGroupType> = [
                     "dart",
                 ],
                 images: [
-                    "https://github.com/moSa963/soundstream/assets/65834849/e93185a1-82d4-4344-962e-d3c51f7ad654",
+                    "./images/soundstream/soundstream7.png",
+                    "./images/soundstream/soundstream5.png",
+                    "./images/soundstream/soundstream6.png",
+                    "./images/soundstream/soundstream8.png",
                 ],
                 link: "https://github.com/moSa963/soundstream-flutter",
                 preview: null,
@@ -140,7 +150,8 @@ export const projects : Array<ProjectGroupType> = [
                     "mui",
                 ],
                 images: [
-                    "https://github.com/moSa963/soundstream/assets/65834849/e93185a1-82d4-4344-962e-d3c51f7ad654",
+                    "./images/soundstream/soundstream3.png",
+                    "./images/soundstream/soundstream4.png",
                 ],
                 link: "https://github.com/moSa963/soundstream-vite",
                 preview: null,
@@ -165,8 +176,6 @@ export const projects : Array<ProjectGroupType> = [
                 images: [
                     "https://github.com/moSa963/HouseRental/blob/master/preview1.png?raw=true",
                     "https://github.com/moSa963/HouseRental/blob/master/preview3.png?raw=true",
-                    "https://github.com/moSa963/HouseRental/blob/master/preview5.png?raw=true",
-                    "https://github.com/moSa963/HouseRental/blob/master/preview4.png?raw=true",
                 ],
                 link: "https://github.com/moSa963/house-rental",
                 preview: null,
@@ -182,7 +191,8 @@ export const projects : Array<ProjectGroupType> = [
                     "Mui",
                 ],
                 images: [
-                    "https://github.com/moSa963/soundstream/assets/65834849/e93185a1-82d4-4344-962e-d3c51f7ad654",
+                    "https://github.com/moSa963/HouseRental/blob/master/preview5.png?raw=true",
+                    "https://github.com/moSa963/HouseRental/blob/master/preview4.png?raw=true",
                 ],
                 link: "https://github.com/moSa963/house-rental-react",
                 preview: null,
@@ -201,9 +211,8 @@ export const projects : Array<ProjectGroupType> = [
                     "python",
                 ],
                 images: [
-                    "https://github.com/moSa963/MyPhoto-react-native/blob/master/preview.jpg?raw=true",
                     "https://github.com/moSa963/MyPhoto-react-native/blob/master/preview1.jpg?raw=true",
-                    "https://github.com/moSa963/MyPhoto-react-native/blob/master/preview2.jpg?raw=true",
+                    "https://github.com/moSa963/MyPhoto-react-native/blob/master/preview.jpg?raw=true",
                 ],
                 link: "https://github.com/moSa963/myphoto",
                 preview: null,
@@ -216,7 +225,7 @@ export const projects : Array<ProjectGroupType> = [
                     "Javascript",
                 ],
                 images: [
-                    "https://github.com/moSa963/soundstream/assets/65834849/e93185a1-82d4-4344-962e-d3c51f7ad654",
+                    "https://github.com/moSa963/MyPhoto-react-native/blob/master/preview2.jpg?raw=true",
                 ],
                 link: "https://github.com/moSa963/myphoto-react-native",
                 preview: null,
