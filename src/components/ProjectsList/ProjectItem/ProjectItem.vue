@@ -2,6 +2,7 @@
 import type { ProjectType } from '../../../data/projects';
 import Card from '@/components/Card.vue';
 import TechBar from './TechBar.vue';
+import Preview from "./Preview.vue";
 
 defineProps<{
     project: ProjectType
@@ -21,10 +22,10 @@ defineProps<{
                 </div>
             </main>
             <div class="image-div">
-                <img :src="project.images[0]" />
+                <Preview class="img" :project="project" />
             </div>
         </Card>
-        <TechBar :items="project.technologies" />
+        <TechBar :items="project.technologies"/>
     </a>
 </template>
 
@@ -36,7 +37,7 @@ defineProps<{
     perspective: 700px;
     cursor: pointer;
     margin: 10px;
-    margin-bottom: 60px;
+    margin-bottom: 80px;
 }
 
 .main-card {
@@ -86,16 +87,14 @@ h2 {
     margin-left: var(--marg);
 }
 
-.image-div img {
-    width: 100%;
-    height: 100%;
+.image-div .img {
     object-fit: cover;
-    justify-content: start;
-    align-items: center;
+    object-position: 0% 50%;
 }
 
-.main-card:hover img {
+.main-card:hover .img {
     object-fit: contain;
+    object-position: 50% 50%;
 }
 
 .main-card:hover .image-div {
@@ -106,20 +105,17 @@ h2 {
     .root {
         width: 45%;
     }
-
     h2 {
-        font-size: 2rem;
-    }
-
-    .main-card:hover {
-        --marg: -67%;
-    }
-
-    main {
-        flex: 2;
-    }
-
-    .image-div {
-        flex: 3;
-    }
-}</style>
+    font-size: 2rem;
+}
+.main-card:hover {
+    --marg: -67%;
+}
+main {
+    flex: 2;
+}
+.image-div {
+    flex: 3;
+}
+}
+</style>
