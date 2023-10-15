@@ -5,7 +5,7 @@ const props = withDefaults(defineProps<{
     margin?: number,
 }>(), {
     size: 50,
-    margin: .3,
+    margin: 1,
 });
 
 const canv = ref<HTMLCanvasElement | null>(null);
@@ -41,7 +41,7 @@ const onMouseleave = () => {
 
 const setSize = (e: HTMLCanvasElement) => {
     if (window.innerWidth == null) return;
-    radius = window.innerHeight;
+    radius = window.innerHeight * .75;
     e.width = window.innerWidth;
     e.height = window.innerHeight;
 }
@@ -61,14 +61,14 @@ const draw = (e: HTMLCanvasElement, hoverX?: number, hoverY?: number) => {
 
             if (hoverX != null && hoverY != null) {
                 ratio = ratioFromCenter(x, y, hoverX, hoverY, radius);
-                color += (175 + Math.floor(80 * ratio)).toString(16);
+                color += (155 + Math.floor(100 * ratio)).toString(16);
                 offset = getOffset(hoverX, hoverY);
             }
 
             drawRect(ctx!,
                 x + offset.x - (offset.x * ratio),
                 y + offset.y - (offset.y * ratio),
-                props.margin - (ratio * props.margin),
+                props.margin - (Math.min(0.7, ratio) * props.margin),
                 color
             );
         }
@@ -88,8 +88,8 @@ const ratioFromCenter = (x1: number, y1: number, cX: number, cY: number, radius:
 
 const getOffset = (x: number, y: number) => {
     return {
-        x: ((x / window.innerWidth) - 0.5) * 200,
-        y: ((y / window.innerHeight) - 0.5) * 200,
+        x: ((x / window.innerWidth) - 0.5) * -300,
+        y: ((y / window.innerHeight) - 0.5) * -300,
     };
 }
 
@@ -104,7 +104,7 @@ canvas {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background-color: black;
+    background-color: var(--color-background-mute);
     z-index: -1;
 }
 </style>
