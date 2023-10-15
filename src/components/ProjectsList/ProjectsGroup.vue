@@ -10,7 +10,7 @@ import ProjectItem from "./ProjectItem/ProjectItem.vue";
 <template>
     <main>
         <h1>{{ group.name }}</h1>
-        <p>{{ group.description }}</p>
+        <p class="description">{{ group.description }}</p>
         <div class="list">
             <ProjectItem v-for="project in group.projects" :project="project" />
         </div>
@@ -27,9 +27,9 @@ main{
 h1{
     font-size: 3rem;
 }
-p{
-    padding-left: 100px;
-    padding-right: 100px;
+.description{
+    padding-left: 10px;
+    padding-right: 10px;
     font-size: 1.2rem;
 }
 .list{
@@ -46,5 +46,12 @@ p{
     margin-top: 50px;
     margin-bottom: 50px;
 
+}
+
+@media (min-width: 720px) {
+    .description {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
 }
 </style>
