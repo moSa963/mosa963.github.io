@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import AppHeader from '@/components/AppHeader.vue';
 import Background from '@/components/Background.vue';
+import ProjectsList from '@/components/ProjectsList/ProjectsList.vue';
+import { projects } from '@/data/projects';
 
 
 </script>
@@ -8,11 +10,13 @@ import Background from '@/components/Background.vue';
 <template>
     <Background />
     <main>
-        <AppHeader title="Hi, I'm mohamad" info="I am Mohamad, a passionate programmer, who thrives on a full range of programming challenges from
-                    crafting seamless front-end experiences to designing powerful back-end solutions.
-                    For me, programming is not just a profession; it's a boundless journey of creativity and
-                    problem-solving." />
-
+        <AppHeader 
+            title="Hi, I'm mohamad" 
+            info="I am Mohamad, a passionate programmer, who thrives on a full range of programming challenges from
+                crafting seamless front-end experiences to designing powerful back-end solutions.
+                For me, programming is not just a profession; it's a boundless journey of creativity and
+                problem-solving." />
+        <ProjectsList :list="projects" />
     </main>
 </template>
 
