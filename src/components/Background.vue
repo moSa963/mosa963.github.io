@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { Point } from '@/models/Point';
 import { onMounted, ref, onUnmounted } from 'vue';
+import { lineLength } from "@/utils/line";
+
 const props = withDefaults(defineProps<{
     size?: number,
     margin?: number,
@@ -11,7 +14,7 @@ const props = withDefaults(defineProps<{
 const canv = ref<HTMLCanvasElement | null>(null);
 let radius = 800;
 let id = -1;
-let lastPoint = { x: 0, y: 0 };
+let lastPoint: Point | undefined;
 
 onMounted(() => {
     if (canv.value === null) return;
@@ -36,7 +39,7 @@ const onResize = () => {
 const onMousemove = (e: MouseEvent) => {
     clearInterval(id);
     id = -1;
-    draw(canv.value!, e.clientX, e.clientY);
+    draw(canv.value!, new Point(e.clientX, e.clientY));
 }
 
 const onMouseleave = () => {
@@ -44,76 +47,106 @@ const onMouseleave = () => {
 
     var counter = 0;
 
+    //start animation
     id = setInterval(() => {
         counter += 1;
-        draw(canv.value!, lastPoint.x - counter, lastPoint.y);
+        draw(canv.value!, new Point((lastPoint?.x || 0) - counter, lastPoint?.y || 0));
 
         if (counter >= radius * 2) {
             clearInterval(id);
             id = -1;
         }
-    }, 15);
+    }, 10);
 }
 
 const setSize = (e: HTMLCanvasElement) => {
-    if (window.innerWidth == null) return;
+    if (window.innerWidth == null) {
+        return;
+    };
+
     radius = window.innerHeight * .75;
     e.width = window.innerWidth;
     e.height = window.innerHeight;
 }
 
-const draw = (e: HTMLCanvasElement, hoverX?: number, hoverY?: number) => {
-    lastPoint = {
-        x: hoverX || 0,
-        y: hoverY || 0,
-    };
+const draw = (e: HTMLCanvasElement, hover?: Point) => {
+    lastPoint = hover;
 
     const ctx = e.getContext("2d");
     var backgroundColor = getComputedStyle(e as Element).getPropertyValue("--color-background");
 
-    ctx?.reset();
+    ctx!.reset();
     ctx!.beginPath();
 
-    for (var y = 0; y <= window.innerHeight; y += props.size) {
-        for (var x = 0; x <= window.innerWidth; x += props.size) {
-            let ratio = 1;
-            let color = backgroundColor;
-            let offset = { x: 0, y: 0 };
+    drawGrid(ctx!, backgroundColor, hover);
+}
 
-            if (hoverX != null && hoverY != null) {
-                ratio = ratioFromCenter(x, y, hoverX, hoverY, radius);
-                color += (155 + Math.floor(100 * ratio)).toString(16);
-                offset = getOffset(hoverX, hoverY);
-            }
+const drawGrid = (ctx: CanvasRenderingContext2D, color: string, hover?: Point) => {
+    var y = 0;
+    var offsety = props.size;
 
-            drawRect(ctx!,
-                x + offset.x - (offset.x * ratio),
-                y + offset.y - (offset.y * ratio),
-                props.margin - (Math.min(0.7, ratio) * props.margin),
-                color
-            );
+    //Start drawing from right to left
+    if (hover && hover.y > window.innerHeight / 2) {
+        y = window.innerHeight - (window.innerHeight % props.size);
+        offsety *= -1;
+    }
+
+    while (y >= 0 && y < window.innerHeight) {
+        var x = 0;
+        var offsetx = props.size;
+
+        //Start drawing from bottom to top
+        if (hover && hover.x > window.innerWidth / 2) {
+            x = window.innerWidth - (window.innerWidth % props.size);
+            offsetx *= -1;
+        }
+
+        while (x >= 0 && x < window.innerWidth) {
+            drawRect(ctx, { x, y }, props.margin, color, hover);
+            x += offsetx;
+        }
+
+        y += offsety;
+    }
+}
+
+const drawRect = (ctx: CanvasRenderingContext2D, p: Point, margin: number, color: string, hover?: Point) => {
+    let ratio = 1;
+    let offset = { x: 0, y: 0 };
+
+    ctx.shadowColor = "#00000055";
+    ctx.shadowBlur = 1;
+
+    if (hover) {
+        ratio = lineLength(p, hover) / radius;
+        offset = getOffset(hover);
+
+        if (ratio <= 1.1) {
+            ctx.shadowBlur = 10;
         }
     }
 
-}
+    ratio = ratio > 1 ? 1 : ratio;
 
-const drawRect = (ctx: CanvasRenderingContext2D, x: number, y: number, margin: number, color: string) => {
     ctx.fillStyle = color;
-    ctx.fillRect(x + margin, y + margin, props.size - margin * 2, props.size - margin * 2);
+
+    margin = (Math.min(0.99, ratio) * margin);
+
+    ctx.transform(0.99, 0, 0, 0.99, p.x + (offset.x - (offset.x * ratio)), p.y + (offset.y - (offset.y * ratio)));
+
+    ctx.fillRect(0, 0, props.size, props.size);
+
+    ctx.shadowBlur = 0;
+
+    ctx.resetTransform();
 }
 
-const ratioFromCenter = (x1: number, y1: number, cX: number, cY: number, radius: number) => {
-    const l = Math.sqrt(Math.pow(Math.abs(cX - x1), 2) + Math.pow(Math.abs(cY - y1), 2));
-    return l < radius ? l / radius : 1
-}
-
-const getOffset = (x: number, y: number) => {
+const getOffset = (p: Point) => {
     return {
-        x: ((x / window.innerWidth) - 0.5) * -300,
-        y: ((y / window.innerHeight) - 0.5) * -300,
+        x: ((p.x / window.innerWidth) - 0.5) * -300,
+        y: ((p.y / window.innerHeight) - 0.5) * -300,
     };
 }
-
 </script>
 
 <template>
