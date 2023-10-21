@@ -26,7 +26,6 @@ import ThemeButton from '@/components/ThemeButton.vue';
 .tools {
     padding: 8px;
     position: fixed;
-    z-index: 0;
     pointer-events: auto;
 }
 
@@ -35,7 +34,6 @@ import ThemeButton from '@/components/ThemeButton.vue';
     margin-left: 10px;
     margin-right: 10px;
     pointer-events: auto;
-    z-index: 2;
 }
 
 .icon-button {

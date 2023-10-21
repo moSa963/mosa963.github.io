@@ -54,11 +54,11 @@ const onMouseleave = () => {
         counter += 1;
         draw(canv.value!, new Point((lastPoint?.x || 0) - counter, lastPoint?.y || 0));
 
-        if (counter >= radius * 2) {
+        if (counter >= radius / 5) {
             clearInterval(id);
             id = -1;
         }
-    }, 10);
+    }, 20);
 }
 
 const setSize = (e: HTMLCanvasElement) => {
@@ -160,7 +160,6 @@ canvas {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    z-index: 1;
     pointer-events: none;
 }
 </style>
