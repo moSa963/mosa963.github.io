@@ -160,7 +160,6 @@ canvas {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    z-index: 1;
     pointer-events: none;
 }
 </style>
