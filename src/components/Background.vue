@@ -21,12 +21,14 @@ onMounted(() => {
     setSize(canv.value!);
     draw(canv.value!);
     window.addEventListener("resize", onResize);
+    window.addEventListener("click", onMousemove);
     window.addEventListener("mousemove", onMousemove);
     window.addEventListener("mouseout", onMouseleave);
 });
 
 onUnmounted(() => {
     window.removeEventListener("resize", onResize);
+    window.removeEventListener("click", onMousemove);
     window.removeEventListener("mousemove", onMousemove);
     window.removeEventListener("mouseout", onMouseleave);
 });
@@ -158,7 +160,7 @@ canvas {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background-color: var(--color-background-mute);
-    z-index: -1;
+    z-index: 1;
+    pointer-events: none;
 }
 </style>
