@@ -5,6 +5,7 @@ import ProjectsList from '@/components/ProjectsList/ProjectsList.vue';
 import { projects } from '@/data/projects';
 import Tools from '@/components/Tools/Tools.vue';
 import { ref } from 'vue';
+import user from '@/data/user';
 
 const filter = ref<string[]>([]);
 
@@ -18,10 +19,7 @@ const setFilter = (data: string[]) => {
     <Tools @filter-change="setFilter"/>
     <Background />
     <div class="info">
-        <AppHeader title="Hi, I'm mohamad" info="I am Mohamad, a passionate programmer, who thrives on a full range of programming challenges from
-        crafting seamless front-end experiences to designing powerful back-end solutions.
-        For me, programming is not just a profession; it's a boundless journey of creativity and
-        problem-solving." />
+        <AppHeader :title="`Hi, I'm ${user.name}`" :info="user.info" />
         <ProjectsList :list="projects" :filter="filter"/>
     </div>
 </template>
