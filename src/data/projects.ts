@@ -43,12 +43,12 @@ export const projects : Array<ProjectGroupType> = [
                 name: "web frontend",
                 description: "React js frontend app.",
                 technologies: [
-                    "React",
-                    "Redux",
-                    "Javascript",
-                    "Css",
-                    "Html",
-                    "Mui",
+                    "react",
+                    "redux",
+                    "javascript",
+                    "css",
+                    "html",
+                    "mui",
                 ],
                 images: [
                     "./images/chatroom/chatroom5.png",
@@ -85,11 +85,11 @@ export const projects : Array<ProjectGroupType> = [
                 name: "web frontend",
                 description: "React js frontend app.",
                 technologies: [
-                    "React",
-                    "Javascript",
-                    "Css",
-                    "Html",
-                    "Mui",
+                    "react",
+                    "javascript",
+                    "css",
+                    "html",
+                    "mui",
                 ],
                 images: [
                     "./images/mystorage/mystorage5.png",
@@ -185,10 +185,10 @@ export const projects : Array<ProjectGroupType> = [
                 description: "Next js frontend app.",
                 technologies: [
                     "next js",
-                    "Javascript",
-                    "Css",
-                    "Html",
-                    "Mui",
+                    "javascript",
+                    "css",
+                    "html",
+                    "mui",
                 ],
                 images: [
                     "https://github.com/moSa963/HouseRental/blob/master/preview5.png?raw=true",
@@ -221,8 +221,8 @@ export const projects : Array<ProjectGroupType> = [
                 name: "mobile app",
                 description: "React native frontend app.",
                 technologies: [
-                    "React native",
-                    "Javascript",
+                    "react native",
+                    "javascript",
                 ],
                 images: [
                     "https://github.com/moSa963/MyPhoto-react-native/blob/master/preview2.jpg?raw=true",
@@ -242,7 +242,7 @@ export const projects : Array<ProjectGroupType> = [
                 technologies: [
                     "html",
                     "css",
-                    "Javascript",
+                    "javascript",
                 ],
                 images: [
                     "https://github.com/moSa963/paint/blob/master/preview.png?raw=true",
