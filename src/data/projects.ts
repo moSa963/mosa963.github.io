@@ -373,4 +373,27 @@ export const projects : Array<ProjectGroupType> = [
             },
         ]
     },
+    {
+        name: "Portfolio",
+        description: "Welcome to my portfolio, This is where I showcase my creative and technical skills, demonstrating a passion for innovation and problem-solving.",
+        projects: [
+            {
+                name: "Portfolio vue",
+                description: "Vue js app.",
+                technologies: [
+                    "vue3",
+                    "javascript",
+                    "html",
+                    "css",
+                ],
+                images: [
+                    "./images/portfolio/portfolio1.png",
+                    "./images/portfolio/portfolio2.png",
+                    "./images/portfolio/portfolio3.png",
+                ],
+                link: "https://github.com/moSa963/mosa963.github.io",
+                preview: null,
+            },
+        ]
+    },
 ]
