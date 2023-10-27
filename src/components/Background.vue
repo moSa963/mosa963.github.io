@@ -93,17 +93,17 @@ const drawGrid = (ctx: CanvasRenderingContext2D, color: string, hover?: Point) =
         offsety *= -1;
     }
 
-    while (y >= 0 && y < window.innerHeight) {
+    while (y >= 0 && y <= window.innerHeight) {
         var x = 0;
         var offsetx = props.size;
 
         //Start drawing from bottom to top
-        if (hover && hover.x > window.innerWidth / 2) {
+        if (hover && hover.x >= window.innerWidth / 2) {
             x = window.innerWidth - (window.innerWidth % props.size);
             offsetx *= -1;
         }
 
-        while (x >= 0 && x < window.innerWidth) {
+        while (x >= 0 && x <= window.innerWidth) {
             drawRect(ctx, { x, y }, props.margin, color, hover);
             x += offsetx;
         }
