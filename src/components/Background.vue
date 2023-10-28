@@ -51,7 +51,7 @@ const onMouseleave = () => {
 
     //start animation
     id = setInterval(() => {
-        counter += 1;
+        counter += 2;
         draw(canv.value!, new Point((lastPoint?.x || 0) - counter, lastPoint?.y || 0));
 
         if (counter >= radius / 5) {
