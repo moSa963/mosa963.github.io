@@ -3,17 +3,24 @@ import type { ProjectType } from '../../../data/projects';
 import Card from '@/components/Card.vue';
 import TechBar from './TechBar.vue';
 import Preview from "./Preview.vue";
+import { ref } from 'vue';
+import PreviewVideo from './PreviewVideo.vue';
 import GithubButton from './GithubButton.vue';
 
 defineProps<{
     project: ProjectType
 }>();
 
+const openPreview = ref(false);
+
+const togglePreview = () => {
+    openPreview.value = !openPreview.value;
+}
 </script>
 
 
 <template>
-    <div class="root">
+    <div class="root" @click="togglePreview">
         <Card class="main-card">
             <main>
                 <div class="info">
@@ -29,6 +36,8 @@ defineProps<{
         </Card>
         <TechBar :items="project.technologies" />
     </div>
+
+    <PreviewVideo v-if="project.preview" :open="openPreview" @close="togglePreview" :src="project.preview" />
 </template>
 
 
