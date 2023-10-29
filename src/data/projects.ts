@@ -37,7 +37,7 @@ export const projects : Array<ProjectGroupType> = [
                     "./images/chatroom/chatroom3.png",
                 ],
                 link: "https://github.com/moSa963/chatroom",
-                preview: null,
+                preview: "https://github.com/moSa963/chatroom/assets/65834849/86ccb562-4549-4f27-8eeb-e99a1a14dd3d",
             },
             {
                 name: "web frontend",
@@ -55,7 +55,7 @@ export const projects : Array<ProjectGroupType> = [
                     "./images/chatroom/chatroom4.png",
                 ],
                 link: "https://github.com/moSa963/chatroom-react",
-                preview: null,
+                preview: "https://github.com/moSa963/chatroom/assets/65834849/86ccb562-4549-4f27-8eeb-e99a1a14dd3d",
             },
         ]
     },
@@ -79,7 +79,7 @@ export const projects : Array<ProjectGroupType> = [
                     "./images/mystorage/mystorage1.png",
                 ],
                 link: "https://github.com/moSa963/mystorage",
-                preview: null,
+                preview: "https://github.com/moSa963/mystorage/assets/65834849/12350650-c3fa-46f9-a79d-b9c826e811ab",
             },
             {
                 name: "web frontend",
@@ -97,7 +97,7 @@ export const projects : Array<ProjectGroupType> = [
                     "./images/mystorage/mystorage4.png",
                 ],
                 link: "https://github.com/moSa963/mystorage-react",
-                preview: null,
+                preview: "https://github.com/moSa963/mystorage/assets/65834849/12350650-c3fa-46f9-a79d-b9c826e811ab",
             },
         ]
     },
@@ -248,7 +248,7 @@ export const projects : Array<ProjectGroupType> = [
                     "https://github.com/moSa963/paint/blob/master/preview.png?raw=true",
                 ],
                 link: "https://github.com/moSa963/Paint",
-                preview: null,
+                preview: "./images/paint/preview.mp4",
             },
         ]
     },
@@ -267,7 +267,7 @@ export const projects : Array<ProjectGroupType> = [
                     "https://github-production-user-asset-6210df.s3.amazonaws.com/65834849/268520398-0e2df5d7-c9b9-4fbe-bb79-02cfe7eaa631.png",
                 ],
                 link: "https://github.com/moSa963/flappybird_flutter",
-                preview: null,
+                preview: "./images/flappybird/preview.mp4",
             },
         ]
     },
@@ -331,7 +331,7 @@ export const projects : Array<ProjectGroupType> = [
                     "https://github.com/moSa963/Tetris/blob/master/preview.png?raw=true",
                 ],
                 link: "https://github.com/moSa963/Tetris",
-                preview: null,
+                preview: "./images/tetris/preview.mp4",
             },
         ]
     },
@@ -350,7 +350,7 @@ export const projects : Array<ProjectGroupType> = [
                     "https://github.com/moSa963/snakeGame/blob/master/preview.png?raw=true",
                 ],
                 link: "https://github.com/moSa963/SnakeGame",
-                preview: null,
+                preview: "./images/snakegame/preview.mp4",
             },
         ]
     },
@@ -369,7 +369,7 @@ export const projects : Array<ProjectGroupType> = [
                     "https://github.com/moSa963/Visualizer/blob/master/preview.png?raw=true",
                 ],
                 link: "https://github.com/moSa963/visualizer",
-                preview: null,
+                preview: "./images/visualizer/preview.mp4",
             },
         ]
     },
