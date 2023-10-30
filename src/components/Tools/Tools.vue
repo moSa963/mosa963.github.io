@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ResumeButton from '../ResumeButton.vue';
 import ThemeButton from '../ThemeButton.vue';
 import TechList from './TechList.vue';
 
@@ -17,6 +18,7 @@ const emits = defineEmits<{
         </div>
         <div class="sec">
             <ThemeButton class="icon-button" />
+            <ResumeButton class="icon-button" />
         </div>
     </div>
 </template>
