@@ -3,16 +3,24 @@ import type { ProjectType } from '../../../data/projects';
 import Card from '@/components/Card.vue';
 import TechBar from './TechBar.vue';
 import Preview from "./Preview.vue";
+import { ref } from 'vue';
+import PreviewVideo from './PreviewVideo.vue';
+import GithubButton from './GithubButton.vue';
 
 defineProps<{
     project: ProjectType
 }>();
 
+const openPreview = ref(false);
+
+const togglePreview = () => {
+    openPreview.value = !openPreview.value;
+}
 </script>
 
 
 <template>
-    <a class="root" :href="project.link" target="_blank">
+    <div class="root" @click="togglePreview">
         <Card class="main-card">
             <main>
                 <div class="info">
@@ -24,9 +32,12 @@ defineProps<{
             <div class="image-div">
                 <Preview class="img" :project="project" />
             </div>
+            <GithubButton class="git-button" :href="project.link" />
         </Card>
-        <TechBar :items="project.technologies"/>
-    </a>
+        <TechBar :items="project.technologies" />
+    </div>
+
+    <PreviewVideo v-if="project.preview" :open="openPreview" @close="togglePreview" :src="project.preview" />
 </template>
 
 
@@ -101,21 +112,32 @@ h2 {
     background-color: var(--color-background);
 }
 
+.git-button {
+    display: none;
+}
+
+.main-card:hover .git-button {
+    display: block;
+}
+
 @media (min-width: 720px) {
     .root {
         width: 45%;
     }
+
     h2 {
-    font-size: 2rem;
-}
-.main-card:hover {
-    --marg: -67%;
-}
-main {
-    flex: 2;
-}
-.image-div {
-    flex: 3;
-}
-}
-</style>
+        font-size: 2rem;
+    }
+
+    .main-card:hover {
+        --marg: -67%;
+    }
+
+    main {
+        flex: 2;
+    }
+
+    .image-div {
+        flex: 3;
+    }
+}</style>
