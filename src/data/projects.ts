@@ -121,7 +121,7 @@ export const projects : Array<ProjectGroupType> = [
                     "./images/soundstream/soundstream2.png",
                 ],
                 link: "https://github.com/moSa963/soundstream",
-                preview: null,
+                preview: "./images/soundstream/preview.mp4",
             },
             {
                 name: "mobile app",
@@ -137,7 +137,7 @@ export const projects : Array<ProjectGroupType> = [
                     "./images/soundstream/soundstream8.png",
                 ],
                 link: "https://github.com/moSa963/soundstream-flutter",
-                preview: null,
+                preview: "./images/soundstream/preview2.mp4",
             },
             {
                 name: "web application",
@@ -154,7 +154,7 @@ export const projects : Array<ProjectGroupType> = [
                     "./images/soundstream/soundstream4.png",
                 ],
                 link: "https://github.com/moSa963/soundstream-vite",
-                preview: null,
+                preview: "./images/soundstream/preview.mp4",
             },
         ]
     },
