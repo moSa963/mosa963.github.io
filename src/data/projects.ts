@@ -382,7 +382,7 @@ export const projects : Array<ProjectGroupType> = [
                 description: "Vue js app.",
                 technologies: [
                     "vue3",
-                    "javascript",
+                    "typescript",
                     "html",
                     "css",
                 ],
