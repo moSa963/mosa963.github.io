@@ -178,7 +178,7 @@ export const projects : Array<ProjectGroupType> = [
                     "https://github.com/moSa963/HouseRental/blob/master/preview3.png?raw=true",
                 ],
                 link: "https://github.com/moSa963/house-rental",
-                preview: null,
+                preview: "./images/houserental/preview.mp4",
             },
             {
                 name: "web application",
@@ -195,7 +195,7 @@ export const projects : Array<ProjectGroupType> = [
                     "https://github.com/moSa963/HouseRental/blob/master/preview4.png?raw=true",
                 ],
                 link: "https://github.com/moSa963/house-rental-react",
-                preview: null,
+                preview: "./images/houserental/preview.mp4",
             },
         ]
     },
@@ -312,7 +312,7 @@ export const projects : Array<ProjectGroupType> = [
                     "https://github.com/moSa963/MindGames/blob/master/preview2.jpg?raw=true",
                 ],
                 link: "https://github.com/moSa963/MindGames",
-                preview: null,
+                preview: "./images/mindgames/preview.mp4",
             },
         ]
     },
