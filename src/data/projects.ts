@@ -215,7 +215,7 @@ export const projects : Array<ProjectGroupType> = [
                     "https://github.com/moSa963/MyPhoto-react-native/blob/master/preview.jpg?raw=true",
                 ],
                 link: "https://github.com/moSa963/myphoto",
-                preview: null,
+                preview: "./images/myphoto/preview.mp4",
             },
             {
                 name: "mobile app",
@@ -228,7 +228,7 @@ export const projects : Array<ProjectGroupType> = [
                     "https://github.com/moSa963/MyPhoto-react-native/blob/master/preview2.jpg?raw=true",
                 ],
                 link: "https://github.com/moSa963/myphoto-react-native",
-                preview: null,
+                preview: "./images/myphoto/preview.mp4",
             },
         ]
     },
@@ -292,7 +292,7 @@ export const projects : Array<ProjectGroupType> = [
                     "https://github.com/moSa963/Recipes/blob/master/preview2.png?raw=true",
                 ],
                 link: "https://github.com/moSa963/Recipes",
-                preview: null,
+                preview: "./images/recipes/preview.mp4",
             },
         ]
     },
