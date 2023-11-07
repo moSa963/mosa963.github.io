@@ -13,14 +13,11 @@ const setFilter = (data: string[]) => {
     filter.value = data;
 }
 
-const getBackSize = () => {
-    return navigator.userAgent.indexOf('Firefox') === -1 ? 50 : 75;
-}
 </script>
 
 <template>
     <Tools @filter-change="setFilter"/>
-    <Background :size="getBackSize()"/>
+    <Background :size="50"/>
     <div class="info">
         <AppHeader :title="`Hi, I'm ${user.name}`" :info="user.info" />
         <ProjectsList :list="projects" :filter="filter"/>

@@ -11,30 +11,53 @@ const props = withDefaults(defineProps<{
     margin: 1,
 });
 
+//main canvas
 const canv = ref<HTMLCanvasElement | null>(null);
+
+/* 
+| On this canvas the static background will be drawn so that it will be used 
+| to erase any effect drawn on the main canvas using 
+| the "drawImage" method instead of redrawing everything every time an event occurs
+*/
+const fixedCnv = document.createElement("canvas"); 
+
+let color = "#000";
 let radius = 800;
 let id = -1;
-let lastPoint: Point | undefined;
+let lastHover: Point | undefined;
 
 onMounted(() => {
     if (canv.value === null) return;
-    setSize(canv.value!);
-    draw(canv.value!);
+
+    init();
+
     window.addEventListener("resize", onResize);
-    window.addEventListener("click", onMousemove);
+    window.addEventListener("click", onClick);
     window.addEventListener("mousemove", onMousemove);
     window.addEventListener("mouseout", onMouseleave);
 });
 
 onUnmounted(() => {
     window.removeEventListener("resize", onResize);
-    window.removeEventListener("click", onMousemove);
+    window.removeEventListener("click", onClick);
     window.removeEventListener("mousemove", onMousemove);
     window.removeEventListener("mouseout", onMouseleave);
 });
 
+const init = () => {
+    color = getComputedStyle(canv.value! as Element).getPropertyValue("--color-background");
+
+    setSize();
+
+    //draw the fixed background
+    drawGrid(fixedCnv.getContext("2d")!, color);
+
+    draw(canv.value!);
+}
+
 const onResize = () => {
-    setSize(canv.value!);
+    setSize();
+    drawGrid(fixedCnv.getContext("2d")!, color);
     draw(canv.value!);
 }
 
@@ -52,7 +75,7 @@ const onMouseleave = () => {
     //start animation
     id = setInterval(() => {
         counter += 2;
-        draw(canv.value!, new Point((lastPoint?.x || 0) - counter, lastPoint?.y || 0));
+        draw(canv.value!, new Point((lastHover?.x || 0) - counter, lastHover?.y || 0));
 
         if (counter >= radius / 5) {
             clearInterval(id);
@@ -61,29 +84,43 @@ const onMouseleave = () => {
     }, 20);
 }
 
-const setSize = (e: HTMLCanvasElement) => {
+const onClick = (e: MouseEvent) => {
+    color = getComputedStyle(canv.value! as Element).getPropertyValue("--color-background");
+    setSize();
+    drawGrid(fixedCnv.getContext("2d")!, color);
+    draw(canv.value!);
+}
+
+const setSize = () => {
     if (window.innerWidth == null) {
         return;
     };
 
     radius = window.innerHeight * .75;
-    e.width = window.innerWidth;
-    e.height = window.innerHeight;
+    canv.value!.width = fixedCnv.width = window.innerWidth;
+    canv.value!.height = fixedCnv.height = window.innerHeight;
 }
 
 const draw = (e: HTMLCanvasElement, hover?: Point) => {
-    lastPoint = hover;
+    lastHover = hover;
 
     const ctx = e.getContext("2d");
-    var backgroundColor = getComputedStyle(e as Element).getPropertyValue("--color-background");
 
-    ctx!.reset();
+    ctx?.reset();
+    ctx?.drawImage(fixedCnv, 0, 0);
+
+    if (!hover) return;
+    
+    //if there is hover, clear the affected area and draw the hover effect 
+    const area = getAffectedRect(hover, radius, props.size);
+
+    ctx?.clearRect(area.p1.x, area.p1.y, area.p2.x - area.p1.x + props.size, area.p2.y - area.p1.y + props.size);
     ctx!.beginPath();
 
-    drawGrid(ctx!, backgroundColor, hover);
+    drawGrid(ctx!, color, area, hover);
 }
 
-const drawGrid = (ctx: CanvasRenderingContext2D, color: string, hover?: Point) => {
+const drawGrid = (ctx: CanvasRenderingContext2D, color: string, area?: any, hover?: Point) => {
     var y = 0;
     var offsety = props.size;
 
@@ -104,7 +141,9 @@ const drawGrid = (ctx: CanvasRenderingContext2D, color: string, hover?: Point) =
         }
 
         while (x >= 0 && x <= window.innerWidth) {
-            drawRect(ctx, { x, y }, props.margin, color, hover);
+            if (area == undefined || ( x >= area.p1.x && x <= area.p2.x && y >= area.p1.y && y <= area.p2.y  )) {
+                drawRect(ctx, { x, y }, props.margin, color, hover);
+            }
             x += offsetx;
         }
 
@@ -132,7 +171,7 @@ const drawRect = (ctx: CanvasRenderingContext2D, p: Point, margin: number, color
 
     ctx.fillStyle = color;
 
-    margin = (Math.min(0.99, ratio) * margin);
+    margin = Math.min(0.99, ratio) * margin;
 
     ctx.transform(0.99, 0, 0, 0.99, p.x + (offset.x - (offset.x * ratio)), p.y + (offset.y - (offset.y * ratio)));
 
@@ -141,6 +180,30 @@ const drawRect = (ctx: CanvasRenderingContext2D, p: Point, margin: number, color
     ctx.shadowBlur = 0;
 
     ctx.resetTransform();
+}
+
+
+const getAffectedRect = (c: Point, radius: number, size: number) => {
+    const offset = size * ((radius / size) + 2);
+
+    const p1 = {
+        x: c.x - offset,
+        y: c.y - offset,
+    };
+
+    p1.x -= p1.x % size;
+    p1.y -= p1.y % size;
+
+
+    const p2 = {
+        x: c.x + offset,
+        y: c.y + offset,
+    };
+
+    p2.x -= p2.x % size;
+    p2.y -= p2.y % size;
+
+    return { p1, p2 };
 }
 
 const getOffset = (p: Point) => {
