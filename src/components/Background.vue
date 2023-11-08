@@ -88,7 +88,7 @@ const onClick = (e: MouseEvent) => {
     color = getComputedStyle(canv.value! as Element).getPropertyValue("--color-background");
     setSize();
     drawGrid(fixedCnv.getContext("2d")!, color);
-    draw(canv.value!);
+    draw(canv.value!, new Point(e.clientX, e.clientY));
 }
 
 const setSize = () => {
