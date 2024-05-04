@@ -75,10 +75,10 @@ h1 {
     padding-right: 0px;
     animation: card-open 1s;
     transition: all 1s;
+    backdrop-filter: blur(3px);
 }
 
 .card:hover {
-    box-shadow: 1px 10px 30px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(10px);
 }
 
