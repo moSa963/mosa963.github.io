@@ -58,6 +58,7 @@ const togglePreview = () => {
     overflow: hidden;
     border-radius: 15px;
     border: 1px solid;
+    backdrop-filter: blur(3px);
 }
 
 .main-card:hover {
@@ -140,4 +141,5 @@ h2 {
     .image-div {
         flex: 3;
     }
-}</style>
+}
+</style>

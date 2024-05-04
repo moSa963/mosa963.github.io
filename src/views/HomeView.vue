@@ -16,8 +16,8 @@ const setFilter = (data: string[]) => {
 </script>
 
 <template>
-    <Tools @filter-change="setFilter"/>
-    <Background :size="50"/>
+    <Tools @filter-change="setFilter" />
+    <Background :size="50" style="filter: blur(2px);" />
     <div class="info">
         <AppHeader :title="`Hi, I'm ${user.name}`" :info="user.info" />
         <ProjectsList :list="projects" :filter="filter"/>
