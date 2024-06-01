@@ -16,6 +16,44 @@ export type ProjectGroupType = {
 
 export const projects : Array<ProjectGroupType> = [
     {
+        name: "Manga World",
+        description: "Manga World is a user-friendly platform created for reading manga, designed to be easily accessible and regularly updated with the latest chapters.",
+        projects: [
+            {
+                name: "Laravel backend",
+                description: "Laravel application.",
+                technologies: [
+                    "php",
+                    "laravel",
+                    "blade",
+                ],
+                images: [
+                    "./images/mangaworld/mangaworld1.png",
+                    "./images/mangaworld/mangaworld2.png",
+                ],
+                link: "https://github.com/moSa963/manga-world",
+                preview: "./images/mangaworld/preview.mp4",
+            },
+            {
+                name: "web frontend",
+                description: "Vue js frontend app.",
+                technologies: [
+                    "vue3",
+                    "typescript",
+                    "html",
+                    "css",
+                    "javascript",
+                ],
+                images: [
+                    "./images/mangaworld/mangaworld3.png",
+                    "./images/mangaworld/mangaworld2.png",
+                ],
+                link: "https://github.com/moSa963/manga-world",
+                preview: "./images/mangaworld/preview.mp4",
+            },
+        ]
+    },
+    {
         name: "Chatroom",
         description: "ChatRoom is a real-time chat application that brings people together in virtual chat rooms.",
         projects: [
