@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ProjectType } from '../../../data/projects';
+import type { ProjectGroupType, ProjectType } from '../../../data/projects';
 import Card from '@/components/Card.vue';
 import TechBar from './TechBar.vue';
 import Preview from "./Preview.vue";
@@ -8,6 +8,7 @@ import PreviewVideo from './PreviewVideo.vue';
 import GithubButton from './GithubButton.vue';
 
 defineProps<{
+    group: ProjectGroupType
     project: ProjectType
 }>();
 
@@ -37,7 +38,7 @@ const togglePreview = () => {
         <TechBar :items="project.technologies" />
     </div>
 
-    <PreviewVideo v-if="project.preview" :open="openPreview" @close="togglePreview" :src="project.preview" />
+    <PreviewVideo v-if="project.preview" :open="openPreview" @close="togglePreview" :group="group" :project="project" />
 </template>
 
 

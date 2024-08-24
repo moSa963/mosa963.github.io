@@ -1,10 +1,10 @@
 <script setup lang="ts">
-    import type { ProjectGroupType } from "../../data/projects";
+import type { ProjectGroupType } from "../../data/projects";
 import ProjectItem from "./ProjectItem/ProjectItem.vue";
 
-    defineProps<{
-        group: ProjectGroupType,
-    }>();
+defineProps<{
+    group: ProjectGroupType,
+}>();
 </script>
 
 <template>
@@ -12,7 +12,7 @@ import ProjectItem from "./ProjectItem/ProjectItem.vue";
         <h1>{{ group.name }}</h1>
         <p class="description">{{ group.description }}</p>
         <div class="list">
-            <ProjectItem v-for="project in group.projects" :project="project" />
+            <ProjectItem v-for="project in group.projects" :group="group" :project="project" />
         </div>
     </main>
 
@@ -21,25 +21,28 @@ import ProjectItem from "./ProjectItem/ProjectItem.vue";
 
 
 <style scoped>
-main{
+main {
     width: 100%;
 }
-h1{
+
+h1 {
     font-size: 3rem;
 }
-.description{
+
+.description {
     padding-left: 10px;
     padding-right: 10px;
     font-size: 1.2rem;
 }
-.list{
+
+.list {
     width: 100%;
     flex-wrap: wrap;
     display: flex;
     justify-content: center;
 }
 
-.divider{
+.divider {
     width: 100%;
     height: 1px;
     background-color: var(--color-primary);

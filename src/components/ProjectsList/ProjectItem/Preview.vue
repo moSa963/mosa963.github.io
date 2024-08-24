@@ -7,7 +7,7 @@ const props = defineProps<{
 }>();
 
 const index = ref(0);
-var id = 0;
+var id: number | undefined;
 
 const handleMouseEnter = () => {
     id = setInterval(() => {
