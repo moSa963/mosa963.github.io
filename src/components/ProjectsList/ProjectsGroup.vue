@@ -1,22 +1,38 @@
 <script setup lang="ts">
-import type { ProjectGroupType } from "../../data/projects";
+import type { ProjectGroupType, ProjectType } from "../../data/projects";
+import PreviewVideo from "./ProjectItem/PreviewVideo.vue";
 import ProjectItem from "./ProjectItem/ProjectItem.vue";
+import { ref } from 'vue';
 
-defineProps<{
+const props = defineProps<{
     group: ProjectGroupType,
 }>();
+
+const selected = ref<ProjectType | null>(null);
+
+const handleClick = (project: ProjectType | null) => {
+    selected.value = project || props.group.projects[0];
+}
+
+const handleClose = () => {
+    selected.value = null;
+}
+
 </script>
 
 <template>
     <main>
-        <h1>{{ group.name }}</h1>
+        <h1 class="button" @click="() => handleClick(null)">{{ group.name }}</h1>
         <p class="description">{{ group.description }}</p>
         <div class="list">
-            <ProjectItem v-for="project in group.projects" :group="group" :project="project" />
+            <ProjectItem v-for="project in group.projects" :group="group" :project="project" @click="handleClick" />
         </div>
     </main>
 
     <div class="divider"></div>
+
+    <PreviewVideo v-if="selected && selected.preview" :open="Boolean(selected)" @close="handleClose" :group="group"
+        :project="selected" />
 </template>
 
 
@@ -49,6 +65,14 @@ h1 {
     margin-top: 50px;
     margin-bottom: 50px;
 
+}
+
+.button {
+    cursor: pointer;
+}
+
+.button:hover {
+    color: #5555ff;
 }
 
 @media (min-width: 720px) {
