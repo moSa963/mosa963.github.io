@@ -6,8 +6,7 @@ import { projects } from '@/data/projects';
 import Tools from '@/components/Tools/Tools.vue';
 import { ref } from 'vue';
 import user from '@/data/user';
-import Button from '@/components/Button.vue';
-import Contact from '@/components/icons/contact.vue';
+import ResumeCard from '@/components/ResumeCard.vue';
 
 const filter = ref<string[]>([]);
 
@@ -30,14 +29,7 @@ const getBackgroundSize = () => {
     <Background :size="getBackgroundSize()" style="filter: blur(2px);" />
     <div class="info">
         <AppHeader :title="`Hi, I'm ${user.name}`" :info="user.info" />
-        <div class="resume">
-            <a href="/resume.pdf">
-                <Button>
-                    <Contact style="height: 35px;" />
-                    <p>Resume with contact information</p>
-                </Button>
-            </a>
-        </div>
+        <ResumeCard />
         <ProjectsList :list="projects" :filter="filter" />
     </div>
 </template>
@@ -46,15 +38,12 @@ const getBackgroundSize = () => {
 <style scoped>
 .info {
     position: absolute;
+    left: 0;
+    right: 0;
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 60px;
     pointer-events: auto;
-}
-
-.resume {
-    display: flex;
-    justify-content: center;
 }
 
 @media (min-width: 1080px) {
