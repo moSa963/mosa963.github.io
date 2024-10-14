@@ -38,6 +38,8 @@ const getBackgroundSize = () => {
 <style scoped>
 .info {
     position: absolute;
+    left: 0;
+    right: 0;
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 60px;

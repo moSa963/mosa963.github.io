@@ -49,14 +49,15 @@ const handleClick = () => {
     perspective: 700px;
     cursor: pointer;
     margin: 10px;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
 }
 
 .main-card {
     position: relative;
-    height: 300px;
+    width: 100%;
     display: flex;
     overflow: hidden;
+    aspect-ratio: 7/4;
     border-radius: 15px;
     border: 1px solid;
     backdrop-filter: blur(3px);
@@ -71,7 +72,6 @@ main {
     flex: 1;
     display: flex;
     flex-direction: column;
-    height: 100%;
     overflow: hidden;
 }
 
