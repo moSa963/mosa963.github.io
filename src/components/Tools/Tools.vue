@@ -3,33 +3,23 @@ import ResumeButton from '../ResumeButton.vue';
 import ThemeButton from '../ThemeButton.vue';
 import TechList from './TechList.vue';
 
-const emits = defineEmits<{
-    filterChange: [
-        techs: string[],
-    ],
-}>();
-
 </script>
 
 <template>
     <div class="root">
-        <div class="sec tl">
-            <TechList @change="(e) => emits('filterChange', e)"/>
-        </div>
-        <div class="sec">
-            <ThemeButton class="icon-button" />
-            <ResumeButton class="icon-button" />
-        </div>
+        <ThemeButton class="icon-button" />
     </div>
 </template>
 
 <style scoped>
 .root {
     position: fixed;
-    inset: 0 0 0 0;
-    overflow: hidden;
+    left: 0;
+    right: 0;
     display: flex;
-
+    justify-content: end;
+    z-index: 10;
+    padding: 10px;
 }
 
 .icon-button {
@@ -43,25 +33,5 @@ const emits = defineEmits<{
 
 .icon-button:hover {
     color: var(--color-heading);
-}
-
-.sec {
-    padding: 8px;
-    min-width: 60px;
-    display: flex;
-    flex-direction: row;
-}
-
-
-@media (min-width: 1080px) {
-    .root {
-        justify-content: space-between;
-    }
-
-    .sec {
-        height: 100%;
-        flex-direction: column;
-    }
-
 }
 </style>

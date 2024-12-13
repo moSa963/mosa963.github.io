@@ -14,19 +14,11 @@ const setFilter = (data: string[]) => {
     filter.value = data;
 }
 
-const getBackgroundSize = () => {
-    if (navigator.userAgent.indexOf("Firefox") != -1) {
-        return 100;
-    }
-
-    return 50;
-}
-
 </script>
 
 <template>
     <Tools @filter-change="setFilter" />
-    <Background :size="getBackgroundSize()" style="filter: blur(2px);" />
+    <Background :size="70" />
     <div class="info">
         <AppHeader :title="`Hi, I'm ${user.name}`" :info="user.info" />
         <ResumeCard />

@@ -19,7 +19,7 @@ const canv = ref<HTMLCanvasElement | null>(null);
 | to erase any effect drawn on the main canvas using 
 | the "drawImage" method instead of redrawing everything every time an event occurs
 */
-const fixedCnv = document.createElement("canvas"); 
+const fixedCnv = document.createElement("canvas");
 
 let color = "#000";
 let radius = 800;
@@ -110,7 +110,7 @@ const draw = (e: HTMLCanvasElement, hover?: Point) => {
     ctx?.drawImage(fixedCnv, 0, 0);
 
     if (!hover) return;
-    
+
     //if there is hover, clear the affected area and draw the hover effect 
     const area = getAffectedRect(hover, radius, props.size);
 
@@ -141,7 +141,7 @@ const drawGrid = (ctx: CanvasRenderingContext2D, color: string, area?: any, hove
         }
 
         while (x >= 0 && x <= window.innerWidth) {
-            if (area == undefined || ( x >= area.p1.x && x <= area.p2.x && y >= area.p1.y && y <= area.p2.y  )) {
+            if (area == undefined || (x >= area.p1.x && x <= area.p2.x && y >= area.p1.y && y <= area.p2.y)) {
                 drawRect(ctx, { x, y }, props.margin, color, hover);
             }
             x += offsetx;
@@ -155,7 +155,7 @@ const drawRect = (ctx: CanvasRenderingContext2D, p: Point, margin: number, color
     let ratio = 1;
     let offset = { x: 0, y: 0 };
 
-    ctx.shadowColor = "#00000055";
+    ctx.shadowColor = "#00000011";
     ctx.shadowBlur = 1;
 
     if (hover) {
@@ -208,8 +208,8 @@ const getAffectedRect = (c: Point, radius: number, size: number) => {
 
 const getOffset = (p: Point) => {
     return {
-        x: ((p.x / window.innerWidth) - 0.5) * -300,
-        y: ((p.y / window.innerHeight) - 0.5) * -300,
+        x: ((p.x / window.innerWidth) - 0.5) * -100,
+        y: ((p.y / window.innerHeight) - 0.5) * -100,
     };
 }
 </script>
