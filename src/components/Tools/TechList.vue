@@ -28,21 +28,29 @@ const toggle = (tech: { name: string, selected: boolean }) => {
     emits('change', techs.value.filter(e => e.selected).map(e => e.name));
 }
 
+const handleWheel = (e: WheelEvent) => {
+    const target = (e.currentTarget as HTMLElement);
+    target.scrollBy(e.deltaY, 0);
+    e.preventDefault();
+}
 </script>
 
 <template>
-    <div class="l">
+    <div class="l" @wheel="handleWheel">
         <p v-for="t in techs" @click="toggle(t)" :class="`item ${t.selected ? 'selected' : ''}`">{{ t.name }}</p>
     </div>
 </template>
 
 <style scoped>
 .l {
-    flex: 1;
+    width: 100%;
     display: flex;
     overflow: auto;
     scrollbar-width: none;
     flex-direction: row;
+    gap: 10px;
+    padding: 5px;
+    margin-bottom: 20px;
 }
 
 .selected {
@@ -50,29 +58,21 @@ const toggle = (tech: { name: string, selected: boolean }) => {
 }
 
 .item {
-    padding: 3px;
+    padding: 6px;
+    width: fit-content;
     text-wrap: nowrap;
     user-select: none;
-    height: fit-content;
     cursor: pointer;
-    border: 1px solid rgba(120, 120, 120, 0.46);
+    border: 1px solid var(--color-border);
     border-radius: 5px;
-    margin: 3px;
+    color: var(--color-heading);
 }
 
 .item:hover {
-    color: var(--color-heading);
+    color: var(--color-text);
 }
 
 .l::-webkit-scrollbar {
     display: none;
-}
-
-
-
-@media (min-width: 1080px) {
-    .l {
-        flex-direction: column;
-    }
 }
 </style>

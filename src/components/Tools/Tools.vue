@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import ResumeButton from '../ResumeButton.vue';
 import ThemeButton from '../ThemeButton.vue';
-import TechList from './TechList.vue';
 
 </script>
 

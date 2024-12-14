@@ -1,19 +1,22 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import type { ProjectGroupType } from "../../data/projects";
+import TechList from "../Tools/TechList.vue";
 import ProjectsGroup from "./ProjectsGroup.vue";
 
-const props = defineProps<{
+defineProps<{
     list: Array<ProjectGroupType>,
-    filter?: string[],
 }>();
 
+const filter = ref<string[]>([]);
+
 const checkFilter = (group: ProjectGroupType): boolean => {
-    if (!props.filter || props.filter.length === 0) {
+    if (filter.value.length === 0) {
         return true;
     }
 
     for (const p of group.projects) {
-        for (const f of props.filter) {
+        for (const f of filter.value) {
             if (p.technologies.find(e => e == f)) {
                 return true;
             }
@@ -22,10 +25,15 @@ const checkFilter = (group: ProjectGroupType): boolean => {
 
     return false;
 }
+
+const handleChange = (v: string[]) => {
+    filter.value = v;
+}
 </script>
 
 
 <template>
+    <TechList @change="handleChange" />
     <div class="root">
         <div class="list">
             <ProjectsGroup v-for="group in list.filter(checkFilter)" :group="group" />
