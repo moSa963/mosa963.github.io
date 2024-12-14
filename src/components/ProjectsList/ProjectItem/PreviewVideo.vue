@@ -26,14 +26,14 @@ const emits = defineEmits<{
         </div>
         <div class="vidCont">
             <div class="infoCard">
+                <h2>{{ project.name }}</h2>
+                <hr style="width: 50%;" />
                 <Button>
                     <a :href="project.link" style="display: flex; align-items: center;">
                         <Github style="height: 50px; width: 50px;" />
                         <p>Github</p>
                     </a>
                 </Button>
-                <p>{{ project.name }}</p>
-                <hr />
                 <p>{{ group.description }}</p>
             </div>
             <div style="flex: 2; overflow: hidden; ">
@@ -107,6 +107,10 @@ h2 {
     text-align: center;
     color: var(--color-heading);
     font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
 @media (min-width: 1080px) {
