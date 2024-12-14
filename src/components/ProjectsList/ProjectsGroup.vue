@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { ProjectGroupType, ProjectType } from "../../data/projects";
+import Button from "../Button.vue";
 import PreviewVideo from "./ProjectItem/PreviewVideo.vue";
 import ProjectItem from "./ProjectItem/ProjectItem.vue";
 import { ref } from 'vue';
@@ -22,10 +23,21 @@ const handleClose = () => {
 
 <template>
     <main>
-        <h1 class="button" @click="() => handleClick(null)">{{ group.name }}</h1>
-        <p class="description">{{ group.description }}</p>
+        <div style="flex: 1; display: flex; flex-direction: column;">
+            <h1 class="button" @click="() => handleClick(null)">{{ group.name }}</h1>
+
+            <div style="width: 100%; padding: 20px; flex: 1;">
+                <p class="description">{{ group.description }}</p>
+            </div>
+
+            <div style="width: 100%; display: flex; gap: 20px; flex-wrap: wrap;">
+                <Button v-for="p in group.projects" @click="() => handleClick(p)">
+                    <p>{{ p.name }}</p>
+                </Button>
+            </div>
+        </div>
         <div class="list">
-            <ProjectItem v-for="project in group.projects" :group="group" :project="project" @click="handleClick" />
+            <ProjectItem :group="group" :project="group.projects[0]" @click="handleClick" />
         </div>
     </main>
 
@@ -39,6 +51,9 @@ const handleClose = () => {
 <style scoped>
 main {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
 h1 {
@@ -46,16 +61,11 @@ h1 {
 }
 
 .description {
-    padding-left: 10px;
-    padding-right: 10px;
     font-size: 1.2rem;
 }
 
 .list {
-    width: 100%;
-    flex-wrap: wrap;
-    display: flex;
-    justify-content: center;
+    flex: 1;
 }
 
 .divider {
@@ -75,10 +85,10 @@ h1 {
     color: #5555ff;
 }
 
-@media (min-width: 720px) {
-    .description {
-        padding-left: 100px;
-        padding-right: 100px;
+@media (min-width: 1080px) {
+    main {
+        flex-direction: row;
+        gap: 0px;
     }
 }
 </style>
