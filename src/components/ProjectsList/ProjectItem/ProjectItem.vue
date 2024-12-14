@@ -18,25 +18,36 @@ const emit = defineEmits<{
 const handleClick = () => {
     emit("click", props.project)
 }
+
+const getTechs = () => {
+    var res: Set<string> = new Set<string>();
+
+    props.group.projects.forEach(project => project.technologies.forEach(v => res.add(v)));
+
+    return res;
+}
+
+const getImages = () => {
+    var res: Set<string> = new Set<string>();
+
+    props.group.projects.forEach(project => project.images.forEach(v => res.add(v)));
+
+    return res;
+} 
 </script>
 
 
 <template>
-    <div class="root" @click="handleClick">
-        <Card class="main-card">
-            <main>
-                <div class="info">
-                    <h2>{{ project.name }}</h2>
-                    <br />
-                    <p>{{ project.description }}</p>
+    <div style="width: 100%;">
+        <div class="root" @click="handleClick">
+            <Card class="main-card">
+                <div class="image-div">
+                    <Preview class="img" :images="new Array(...getImages())" />
                 </div>
-            </main>
-            <div class="image-div">
-                <Preview class="img" :project="project" />
-            </div>
-            <GithubButton class="git-button" :href="project.link" />
-        </Card>
-        <TechBar :items="project.technologies" />
+                <GithubButton class="git-button" :href="project.link" />
+            </Card>
+            <TechBar :items="new Array(...getTechs())" />
+        </div>
     </div>
 
 </template>
@@ -48,42 +59,17 @@ const handleClick = () => {
     width: 100%;
     perspective: 700px;
     cursor: pointer;
-    margin: 10px;
-    margin-bottom: 40px;
 }
 
 .main-card {
     position: relative;
-    width: 100%;
     display: flex;
     overflow: hidden;
     aspect-ratio: 7/4;
     border-radius: 15px;
     border: 1px solid;
-    backdrop-filter: blur(3px);
-}
-
-.main-card:hover {
-    --marg: -100%;
-}
-
-main {
-    position: relative;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-}
-
-.info {
-    position: relative;
-    flex: 1;
-    word-wrap: break-word;
-    text-align: center;
-    padding: 3px;
-    padding-right: 10px;
-    overflow: hidden;
-    z-index: -1;
+    background-color: var(--color-background);
+    width: 100%;
 }
 
 h2 {
@@ -94,18 +80,11 @@ h2 {
 
 .image-div {
     flex: 1;
-    height: 100%;
     overflow: hidden;
     transition: all 300ms;
-    margin-left: var(--marg);
 }
 
 .image-div .img {
-    object-fit: cover;
-    object-position: 0% 50%;
-}
-
-.main-card:hover .img {
     object-fit: contain;
     object-position: 50% 50%;
 }
@@ -123,16 +102,9 @@ h2 {
 }
 
 @media (min-width: 720px) {
-    .root {
-        width: 45%;
-    }
 
     h2 {
         font-size: 2rem;
-    }
-
-    .main-card:hover {
-        --marg: -67%;
     }
 
     main {
