@@ -24,9 +24,8 @@ const handleUp = () => {
 <style scoped>
 .root {
     display: flex;
-    color: var(--color-heading);
+    color: white;
     justify-content: center;
-    backdrop-filter: blur(5px);
     align-items: center;
     gap: 6px;
     font-weight: bold;
@@ -36,10 +35,10 @@ const handleUp = () => {
     width: fit-content;
     border: 1px solid;
     border-radius: 5px;
-
+    background-color: rgba(19, 53, 98, 0.755);
 }
 
 .root:hover {
-    background-color: rgba(128, 128, 128, 0.332);
+    background-color: rgba(19, 53, 98, 0.355);
 }
 </style>
