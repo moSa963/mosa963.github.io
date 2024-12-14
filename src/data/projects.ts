@@ -14,13 +14,13 @@ export type ProjectGroupType = {
     projects: Array<ProjectType>,
 }
 
-export const projects : Array<ProjectGroupType> = [
+export const projects: Array<ProjectGroupType> = [
     {
         name: "Manga World",
         description: "Manga World is a user-friendly platform created for reading manga, designed to be easily accessible and regularly updated with the latest chapters.",
         projects: [
             {
-                name: "Laravel backend",
+                name: "Backend",
                 description: "Laravel application.",
                 technologies: [
                     "php",
@@ -35,7 +35,7 @@ export const projects : Array<ProjectGroupType> = [
                 preview: "./images/mangaworld/preview.mp4",
             },
             {
-                name: "web frontend",
+                name: "Web frontend",
                 description: "Vue js frontend app.",
                 technologies: [
                     "vue3",
@@ -58,7 +58,7 @@ export const projects : Array<ProjectGroupType> = [
         description: "ChatRoom is a real-time chat application that brings people together in virtual chat rooms.",
         projects: [
             {
-                name: "laravel backend",
+                name: "Backend",
                 description: "Laravel application with the react frontend build.",
                 technologies: [
                     "php",
@@ -78,7 +78,7 @@ export const projects : Array<ProjectGroupType> = [
                 preview: "https://github.com/moSa963/chatroom/assets/65834849/86ccb562-4549-4f27-8eeb-e99a1a14dd3d",
             },
             {
-                name: "web frontend",
+                name: "Web frontend",
                 description: "React js frontend app.",
                 technologies: [
                     "react",
@@ -102,7 +102,7 @@ export const projects : Array<ProjectGroupType> = [
         description: "Mystorage is a file storage web application that empowers users to securely store and manage their files.",
         projects: [
             {
-                name: "laravel",
+                name: "Backend",
                 description: "Laravel application with the react frontend build.",
                 technologies: [
                     "php",
@@ -120,7 +120,7 @@ export const projects : Array<ProjectGroupType> = [
                 preview: "https://github.com/moSa963/mystorage/assets/65834849/12350650-c3fa-46f9-a79d-b9c826e811ab",
             },
             {
-                name: "web frontend",
+                name: "Web frontend",
                 description: "React js frontend app.",
                 technologies: [
                     "react",
@@ -144,7 +144,7 @@ export const projects : Array<ProjectGroupType> = [
         description: "Soundstream is a project that lets users share and discover music effortlessly.",
         projects: [
             {
-                name: "laravel",
+                name: "Backend",
                 description: "Laravel application with the react frontend build.",
                 technologies: [
                     "php",
@@ -162,7 +162,7 @@ export const projects : Array<ProjectGroupType> = [
                 preview: "./images/soundstream/preview.mp4",
             },
             {
-                name: "mobile app",
+                name: "Mobile app",
                 description: "Flutter frontend app.",
                 technologies: [
                     "flutter",
@@ -178,7 +178,7 @@ export const projects : Array<ProjectGroupType> = [
                 preview: "./images/soundstream/preview2.mp4",
             },
             {
-                name: "web application",
+                name: "Web application",
                 description: "React js frontend app.",
                 technologies: [
                     "react",
@@ -201,7 +201,7 @@ export const projects : Array<ProjectGroupType> = [
         description: "HouseRental is a web application designed to simplify the process of renting and finding apartments and houses. It provides a user-friendly platform for property owners to list their available spaces for rent and for potential tenants to discover and secure their ideal living spaces.",
         projects: [
             {
-                name: "laravel",
+                name: "Backend",
                 description: "Laravel application with the react frontend build.",
                 technologies: [
                     "php",
@@ -219,7 +219,7 @@ export const projects : Array<ProjectGroupType> = [
                 preview: "./images/houserental/preview.mp4",
             },
             {
-                name: "web application",
+                name: "Web application",
                 description: "Next js frontend app.",
                 technologies: [
                     "next js",
@@ -242,7 +242,7 @@ export const projects : Array<ProjectGroupType> = [
         description: "Myphoto is a project that brings people together through the joy of photography. This application provides a platform for users to share their favorite photos.",
         projects: [
             {
-                name: "django",
+                name: "Backend",
                 description: "Django application as a backend api.",
                 technologies: [
                     "django",
@@ -256,7 +256,7 @@ export const projects : Array<ProjectGroupType> = [
                 preview: "./images/myphoto/preview.mp4",
             },
             {
-                name: "mobile app",
+                name: "Mobile app",
                 description: "React native frontend app.",
                 technologies: [
                     "react native",
@@ -275,7 +275,7 @@ export const projects : Array<ProjectGroupType> = [
         description: "Paint is a lightweight web application that lets users unleash their creativity by drawing on a virtual whiteboard.",
         projects: [
             {
-                name: "Paint",
+                name: "Web application",
                 description: "A lightweight static web app.",
                 technologies: [
                     "html",
@@ -295,7 +295,7 @@ export const projects : Array<ProjectGroupType> = [
         description: "FlappyClone is a mobile game app inspired by the classic Flappy Bird.",
         projects: [
             {
-                name: "flappybird",
+                name: "flutter",
                 description: "flutter mobile app",
                 technologies: [
                     "flutter",
@@ -314,7 +314,7 @@ export const projects : Array<ProjectGroupType> = [
         description: "Recipes is a project dedicated to the joy of cooking and sharing delicious recipes.",
         projects: [
             {
-                name: "Recipes",
+                name: "Backend and frontend",
                 description: "laravel web app",
                 technologies: [
                     "php",
