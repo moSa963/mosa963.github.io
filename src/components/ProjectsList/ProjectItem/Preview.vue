@@ -3,7 +3,7 @@ import type { ProjectType } from '@/data/projects';
 import { ref } from 'vue';
 
 const props = defineProps<{
-    project: ProjectType
+    images: string[],
 }>();
 
 const index = ref(0);
@@ -11,7 +11,7 @@ var id: number | undefined;
 
 const handleMouseEnter = () => {
     id = setInterval(() => {
-        index.value = (index.value + 1) % props.project.images.length;
+        index.value = (index.value + 1) % props.images.length;
     }, 2000);
 }
 
@@ -25,7 +25,7 @@ const handleMouseLeave = () => {
 
 <template>
     <div class="main">
-        <img @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave" v-for="(image, i) in project.images" :key="i"
+        <img @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave" v-for="(image, i) in images" :key="i"
             :src="image" :style="{ opacity: i === index ? 1 : 0 }" />
     </div>
 </template>
