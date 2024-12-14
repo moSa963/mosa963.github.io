@@ -75,11 +75,6 @@ h1 {
     padding-right: 0px;
     animation: card-open 1s;
     transition: all 1s;
-    backdrop-filter: blur(3px);
-}
-
-.card:hover {
-    backdrop-filter: blur(10px);
 }
 
 .details {
