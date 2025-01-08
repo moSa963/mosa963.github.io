@@ -17,7 +17,7 @@ export type ProjectGroupType = {
 export const projects: Array<ProjectGroupType> = [
     {
         name: "Manga World",
-        description: "Manga World is a user-friendly platform created for reading manga, designed to be easily accessible and regularly updated with the latest chapters.",
+        description: "Manga World is a dynamic and user-friendly web application. It offers seamless navigation, interactive features, and a robust backend to ensure an engaging user experience. This project showcases expertise in combining a powerful PHP framework with a modern JavaScript library to create responsive and scalable web solutions.",
         projects: [
             {
                 name: "Backend",
@@ -55,7 +55,7 @@ export const projects: Array<ProjectGroupType> = [
     },
     {
         name: "Chatroom",
-        description: "ChatRoom is a real-time chat application that brings people together in virtual chat rooms.",
+        description: "The Real-Time Chatroom is an interactive web application. It features real-time communication powered by WebSocket technology, providing users with instant message delivery and a seamless chat experience. This project highlights expertise in creating state-managed React applications and integrating them with a robust Laravel backend for efficient and scalable real-time connections.",
         projects: [
             {
                 name: "Backend",
@@ -98,8 +98,33 @@ export const projects: Array<ProjectGroupType> = [
         ]
     },
     {
+        name: "Client portfolio",
+        description: "This modern and interactive portfolio web application was developed using Vue.js, showcasing the projects and expertise of an architect engineer. It provides a sleek and responsive design tailored for displaying projects with high-quality visuals, detailed descriptions, and interactive features.",
+        projects: [
+            {
+                name: "live",
+                description: "vue app.",
+                technologies: [
+                    "vue",
+                    "javascript",
+                    "css",
+                    "html",
+                    "tailwind",
+                ],
+                images: [
+                    "./images/clientportfolio/2.png",
+                    "./images/clientportfolio/1.png",
+                    "./images/clientportfolio/3.png",
+                    "./images/clientportfolio/4.png",
+                ],
+                link: "https://aisha-architect.github.io",
+                preview: "./images/clientportfolio/preview.mp4",
+            },
+        ]
+    },
+    {
         name: "Mystorage",
-        description: "Mystorage is a file storage web application that empowers users to securely store and manage their files.",
+        description: "MyStorage is a cloud storage and file-sharing web application. It enables users to securely upload, store, and share files with ease. This project demonstrates proficiency in building full-stack applications with a focus on security, scalability, and user-centric design.",
         projects: [
             {
                 name: "Backend",
@@ -141,7 +166,7 @@ export const projects: Array<ProjectGroupType> = [
     },
     {
         name: "Soundstream",
-        description: "Soundstream is a project that lets users share and discover music effortlessly.",
+        description: "SoundStream is a multi-platform application designed for sharing and listening to songs, complete with lyrics display. SoundStream delivers a seamless and engaging experience across devices. The app features secure song sharing, dynamic lyrics syncing, and a modern interface. This project highlights expertise in cross-platform development, robust backend integration, and crafting intuitive user experiences tailored for music enthusiasts.",
         projects: [
             {
                 name: "Backend",
@@ -198,7 +223,7 @@ export const projects: Array<ProjectGroupType> = [
     },
     {
         name: "HouseRental",
-        description: "HouseRental is a web application designed to simplify the process of renting and finding apartments and houses. It provides a user-friendly platform for property owners to list their available spaces for rent and for potential tenants to discover and secure their ideal living spaces.",
+        description: "HouseRental is a user-friendly web application designed to simplify the process of renting houses.HouseRental provides a seamless experience for users to browse, book, and manage property rentals.",
         projects: [
             {
                 name: "Backend",
@@ -239,7 +264,7 @@ export const projects: Array<ProjectGroupType> = [
     },
     {
         name: "Myphoto",
-        description: "Myphoto is a project that brings people together through the joy of photography. This application provides a platform for users to share their favorite photos.",
+        description: "MyPhoto is a social media application designed for sharing images and fostering engagement through likes and comments. MyPhoto offers a seamless experience for users to connect and share their moments visually.",
         projects: [
             {
                 name: "Backend",
@@ -272,7 +297,7 @@ export const projects: Array<ProjectGroupType> = [
     },
     {
         name: "Paint",
-        description: "Paint is a lightweight web application that lets users unleash their creativity by drawing on a virtual whiteboard.",
+        description: "Paint is a simple drawing web app created with vanilla JavaScript. The app allows users to interact with an intuitive canvas to create and manipulate shapes with ease.",
         projects: [
             {
                 name: "Web application",
@@ -311,7 +336,7 @@ export const projects: Array<ProjectGroupType> = [
     },
     {
         name: "Recipes",
-        description: "Recipes is a project dedicated to the joy of cooking and sharing delicious recipes.",
+        description: "Recipes is a web application allowing users to discover, share, and manage their favorite recipes. This project provides a smooth, interactive experience for cooking enthusiasts, with a focus on easy navigation and an intuitive interface.",
         projects: [
             {
                 name: "Backend and frontend",
@@ -394,7 +419,7 @@ export const projects: Array<ProjectGroupType> = [
     },
     {
         name: "Visualizer",
-        description: "Application to visuilaiz some path algorithms such as A* and Dijkstra algorithms which are used to find the shortest path between the starting point and the target. And backtracking algorithm to create a maze.",
+        description: "Application to visualize some path algorithms such as A* and Dijkstra algorithms which are used to find the shortest path between the starting point and the target. And backtracking algorithm to create a maze.",
         projects: [
             {
                 name: "Visualizer",
