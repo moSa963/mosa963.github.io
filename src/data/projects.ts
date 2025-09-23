@@ -15,44 +15,7 @@ export type ProjectGroupType = {
 }
 
 export const projects: Array<ProjectGroupType> = [
-    {
-        name: "Manga World",
-        description: "Manga World is a dynamic and user-friendly web application. It offers seamless navigation, interactive features, and a robust backend to ensure an engaging user experience. This project showcases expertise in combining a powerful PHP framework with a modern JavaScript library to create responsive and scalable web solutions.",
-        projects: [
-            {
-                name: "Backend",
-                description: "Laravel application.",
-                technologies: [
-                    "php",
-                    "laravel",
-                    "blade",
-                ],
-                images: [
-                    "./images/mangaworld/mangaworld1.png",
-                    "./images/mangaworld/mangaworld2.png",
-                ],
-                link: "https://github.com/moSa963/manga-world",
-                preview: "./images/mangaworld/preview.mp4",
-            },
-            {
-                name: "Web frontend",
-                description: "Vue js frontend app.",
-                technologies: [
-                    "vue3",
-                    "typescript",
-                    "html",
-                    "css",
-                    "javascript",
-                ],
-                images: [
-                    "./images/mangaworld/mangaworld3.png",
-                    "./images/mangaworld/mangaworld2.png",
-                ],
-                link: "https://github.com/moSa963/manga-world",
-                preview: "./images/mangaworld/preview.mp4",
-            },
-        ]
-    },
+
     {
         name: "Chatroom",
         description: "The Real-Time Chatroom is an interactive web application. It features real-time communication powered by WebSocket technology, providing users with instant message delivery and a seamless chat experience. This project highlights expertise in creating state-managed React applications and integrating them with a robust Laravel backend for efficient and scalable real-time connections.",
@@ -356,6 +319,44 @@ export const projects: Array<ProjectGroupType> = [
                 ],
                 link: "https://github.com/moSa963/Recipes",
                 preview: "./images/recipes/preview.mp4",
+            },
+        ]
+    },
+    {
+        name: "Manga World",
+        description: "Manga World is a dynamic and user-friendly web application. It offers seamless navigation, interactive features, and a robust backend to ensure an engaging user experience. This project showcases expertise in combining a powerful PHP framework with a modern JavaScript library to create responsive and scalable web solutions.",
+        projects: [
+            {
+                name: "Backend",
+                description: "Laravel application.",
+                technologies: [
+                    "php",
+                    "laravel",
+                    "blade",
+                ],
+                images: [
+                    "./images/mangaworld/mangaworld1.png",
+                    "./images/mangaworld/mangaworld2.png",
+                ],
+                link: "https://github.com/moSa963/manga-world",
+                preview: "./images/mangaworld/preview.mp4",
+            },
+            {
+                name: "Web frontend",
+                description: "Vue js frontend app.",
+                technologies: [
+                    "vue3",
+                    "typescript",
+                    "html",
+                    "css",
+                    "javascript",
+                ],
+                images: [
+                    "./images/mangaworld/mangaworld3.png",
+                    "./images/mangaworld/mangaworld2.png",
+                ],
+                link: "https://github.com/moSa963/manga-world",
+                preview: "./images/mangaworld/preview.mp4",
             },
         ]
     },
